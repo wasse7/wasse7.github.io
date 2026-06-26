@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WXM — Studio créatif · Sites, identité & visuels pour commerces</title>
+<meta name="description" content="WXM, studio créatif à Paris. Sites vitrines, identité visuelle, cartes & visuels, vidéos pour commerces et indépendants. Maquette offerte, sans engagement.">
+<meta property="og:title" content="WXM — Studio créatif">
+<meta property="og:description" content="Sites, identité visuelle et visuels haut de gamme pour commerces et indépendants. Maquette offerte.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='none' stroke='%23C9A14A' stroke-width='4'/%3E%3Ctext x='50' y='62' font-family='Arial' font-size='34' font-weight='bold' fill='%23C9A14A' text-anchor='middle'%3EWXM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Playfair+Display:ital@1&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0C10; --bg2:#0E1016; --surf:#14161e; --surf2:#191c25;
+    --line:rgba(255,255,255,0.09); --ink:#F5F5F3; --mut:#9AA0AB; --mut2:#6E747F;
+    --gold:#C9A14A; --gold-soft:#E7C778; --pink:#FF2D8E;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+  .mono{font-family:'Space Mono',monospace;text-transform:uppercase;letter-spacing:3px;font-size:12px;color:var(--gold)}
+  .serif{font-family:'Playfair Display',serif;font-style:italic}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spacing:-0.02em;line-height:1.05}
+  .reveal{animation:rise .7s ease both}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(11,12,16,0.72);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:12px;font-family:'Bricolage Grotesque';font-weight:800;font-size:20px;letter-spacing:1px}
+  .brand .dot{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--gold)}
+  .navlinks{display:flex;gap:30px;align-items:center}
+  .navlinks a{font-size:14px;color:var(--mut);transition:color .2s}
+  .navlinks a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#1a1407;font-weight:600;font-size:14px;padding:11px 20px;border-radius:40px;transition:transform .2s,box-shadow .2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,161,74,0.3)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .navlinks .btn{color:#1a1407}
+
+  /* hero */
+  .hero{position:relative;padding:90px 0 70px}
+  .hero .glow{position:absolute;width:680px;height:680px;border-radius:50%;background:radial-gradient(circle,rgba(201,161,74,0.14),transparent 62%);top:-180px;right:-200px;pointer-events:none}
+  .hero .eyebrow{margin-bottom:22px}
+  .hero h1{font-size:clamp(40px,7vw,78px)}
+  .hero h1 .g{color:var(--gold-soft)}
+  .hero .lead{margin-top:24px;font-size:clamp(16px,2.2vw,20px);color:var(--mut);max-width:620px}
+  .hero .cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .hero .meta{margin-top:30px;font-family:'Space Mono',monospace;font-size:12px;color:var(--mut2);letter-spacing:1px}
+
+  /* section head */
+  .sec{padding:74px 0}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:42px}
+  .sec-head h2{font-size:clamp(28px,4.5vw,46px)}
+  .sec-head h2 .g{color:var(--gold-soft)}
+  .sec-head p{color:var(--mut);max-width:420px;font-size:15px}
+
+  /* projects */
+  .projects{display:grid;gap:26px}
+  .proj{display:grid;grid-template-columns:1.05fr 1fr;gap:0;background:var(--surf);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .25s,border-color .25s}
+  .proj:hover{transform:translateY(-4px);border-color:rgba(201,161,74,0.4)}
+  .proj:nth-child(even){grid-template-columns:1fr 1.05fr}
+  .proj:nth-child(even) .pv{order:2}
+  .proj .pv{position:relative;min-height:330px;display:flex;align-items:center;justify-content:center;padding:34px;overflow:hidden}
+  .proj .pinfo{padding:40px}
+  .proj .ptag{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+  .proj h3{font-size:27px;margin-top:12px}
+  .proj .pdesc{color:var(--mut);margin-top:14px;font-size:15px}
+  .proj .pchips{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+  .proj .chip{font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:30px;padding:5px 12px}
+  .proj .plink{margin-top:24px;display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--gold-soft);font-weight:600}
+  .proj .plink span{transition:transform .2s}
+  .proj:hover .plink span{transform:translateX(4px)}
+
+  /* mockup: horloger site */
+  .mk-watch{background:radial-gradient(circle at 50% 35%,#1c1a14,#0a0a0c 75%);width:100%;height:100%;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(201,161,74,0.25);position:relative}
+  .mk-watch .ring{width:120px;height:120px;border-radius:50%;border:2px solid var(--gold);position:relative;box-shadow:0 0 50px rgba(201,161,74,0.25)}
+  .mk-watch .ring:before{content:"";position:absolute;inset:14px;border-radius:50%;border:1px solid rgba(201,161,74,0.35)}
+  .mk-watch .ring:after{content:"";position:absolute;left:50%;top:50%;width:2px;height:42px;background:var(--gold);transform-origin:bottom;transform:translate(-50%,-100%) rotate(38deg)}
+  .mk-watch .nm{font-family:'Playfair Display',serif;color:var(--gold-soft);font-size:18px;margin-top:22px;letter-spacing:1px}
+  .mk-watch .sub{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:3px;color:#9c8f6e;margin-top:8px;text-transform:uppercase}
+
+  /* mockup: logos grid */
+  .mk-logos{width:100%;height:100%;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .mk-logos .cell{background:#0d0d10;border:1px solid rgba(201,161,74,0.18);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:var(--gold-soft);min-height:120px}
+  .mk-logos .mono-emb{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px}
+  .mk-logos .word{font-family:'Playfair Display',serif;font-size:13px;letter-spacing:1px;text-align:center;line-height:1.2}
+  .mk-logos .tiny{font-family:'Space Mono',monospace;font-size:7px;letter-spacing:2px;color:#8a7f63;text-transform:uppercase}
+
+  /* mockup: sushi menu */
+  .mk-sushi{width:100%;height:100%;border-radius:14px;background:radial-gradient(120% 90% at 70% 10%,#3a0f2a,#0a0a0d 70%);border:1px solid rgba(255,45,142,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .mk-sushi .badge{position:absolute;top:16px;left:16px;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:2px;color:#bfe06a;border:1px solid rgba(191,224,106,0.5);border-radius:20px;padding:4px 9px}
+  .mk-sushi .ttl{font-family:'Bricolage Grotesque';font-weight:800;font-size:34px;line-height:0.95;text-align:center}
+  .mk-sushi .ttl .p{color:var(--pink);text-shadow:0 0 22px rgba(255,45,142,0.6)}
+  .mk-sushi .ttl .w{color:#fff}
+  .mk-sushi .mn{font-family:'Space Mono',monospace;letter-spacing:5px;font-size:11px;color:var(--pink);margin-top:14px}
+  .mk-sushi .jp{font-family:'Space Mono',monospace;font-size:8px;color:#8a8a90;margin-top:6px;letter-spacing:3px}
+
+  /* services */
+  .svcs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .svc{background:var(--surf);border:1px solid var(--line);border-radius:18px;padding:30px;transition:border-color .25s,transform .25s}
+  .svc:hover{border-color:rgba(201,161,74,0.35);transform:translateY(-3px)}
+  .svc .n{font-family:'Space Mono',monospace;color:var(--gold);font-size:12px;letter-spacing:2px}
+  .svc h3{font-size:20px;margin-top:14px}
+  .svc p{color:var(--mut);font-size:14px;margin-top:10px}
+  .svc ul{list-style:none;margin-top:14px}
+  .svc li{font-size:13px;color:var(--mut);padding:5px 0 5px 18px;position:relative}
+  .svc li:before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+  /* about */
+  .about{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .about .row{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:center}
+  .about h2{font-size:clamp(26px,4vw,40px)}
+  .about h2 .g{color:var(--gold-soft)}
+  .about p{color:var(--mut);margin-top:18px;font-size:16px}
+  .about .pts{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .about .pt .t{font-weight:600;font-size:15px}
+  .about .pt .d{color:var(--mut);font-size:13px;margin-top:4px}
+  .about .card{background:var(--surf);border:1px solid var(--line);border-radius:20px;padding:34px}
+  .about .card .big{font-family:'Bricolage Grotesque';font-weight:800;font-size:30px}
+  .about .card .lab{color:var(--mut2);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-top:4px}
+  .about .card .div{height:1px;background:var(--line);margin:22px 0}
+
+  /* method */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step{padding:28px;border:1px solid var(--line);border-radius:18px;background:var(--surf)}
+  .step .num{font-family:'Space Mono',monospace;color:var(--gold);font-size:13px}
+  .step h3{font-size:18px;margin-top:12px}
+  .step p{color:var(--mut);font-size:14px;margin-top:8px}
+
+  /* contact */
+  .contact{position:relative}
+  .contact .box{background:linear-gradient(135deg,#16130c,#0e0f14);border:1px solid rgba(201,161,74,0.35);border-radius:24px;padding:56px;text-align:center;position:relative;overflow:hidden}
+  .contact .box .glow{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(201,161,74,0.16),transparent 65%);top:-160px;left:50%;transform:translateX(-50%)}
+  .contact h2{font-size:clamp(28px,4.5vw,44px);position:relative}
+  .contact h2 .g{color:var(--gold-soft)}
+  .contact p{color:var(--mut);margin-top:16px;position:relative}
+  .contact .cta{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+  .contact .mailline{margin-top:18px;font-family:'Space Mono',monospace;font-size:13px;color:var(--mut);position:relative}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mut2);font-size:13px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .foot .mono{color:var(--gold)}
+
+  @media(max-width:820px){
+    .navlinks{display:none}
+    .proj,.proj:nth-child(even){grid-template-columns:1fr}
+    .proj:nth-child(even) .pv{order:0}
+    .proj .pv{min-height:240px}
+    .svcs{grid-template-columns:1fr}
+    .about .row{grid-template-columns:1fr;gap:30px}
+    .steps{grid-template-columns:1fr}
+    .contact .box{padding:36px 22px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span class="dot">WXM</span> WXM</div>
+    <nav class="navlinks">
+      <a href="#realisations">Réalisations</a>
+      <a href="#services">Services</a>
+      <a href="#apropos">À propos</a>
+      <a class="btn" href="#contact">Maquette offerte</a>
+    </nav>
+    <a class="btn" href="#contact" style="display:none" id="mbtn">Contact</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="glow"></div>
+    <div class="wrap">
+      <div class="mono eyebrow reveal">Studio créatif · Paris</div>
+      <h1 class="reveal">Donnez à votre commerce<br>l'image <span class="g serif">qu'il mérite.</span></h1>
+      <p class="lead reveal">WXM conçoit des sites, des identités et des visuels soignés pour les commerces et les indépendants — un rendu de studio, sans le budget ni la lenteur d'une agence.</p>
+      <div class="cta reveal">
+        <a class="btn" href="#contact">Demander une maquette offerte</a>
+        <a class="btn ghost" href="#realisations">Voir les réalisations</a>
+      </div>
+      <div class="meta reveal">MAQUETTE OFFERTE · SANS ENGAGEMENT · VOUS VALIDEZ AVANT DE PAYER</div>
+    </div>
+  </section>
+
+  <!-- REALISATIONS -->
+  <section class="sec" id="realisations">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="mono">Réalisations ●</div>
+          <h2>Des projets <span class="g serif">réels.</span></h2>
+        </div>
+        <p>Une sélection de travaux récents — identité, web et print. Cliquez pour explorer les versions en ligne.</p>
+      </div>
+
+      <div class="projects">
+
+        <!-- Project 1: Horloger site -->
+        <article class="proj reveal">
+          <div class="pv">
+            <div class="mk-watch">
+              <div class="ring"></div>
+              <div class="nm">La Maison des Horlogers</div>
+              <div class="sub">Atelier d'horlogerie · Paris 15ᵉ</div>
+            </div>
+          </div>
+          <div class="pinfo">
+            <div class="ptag">Site vitrine · Web</div>
+            <h3>La Maison des Horlogers</h3>
+            <p class="pdesc">Site vitrine élégant pour un atelier d'horlogerie parisien : révision, restauration et services sur-mesure, dans une ambiance feutrée et haut de gamme.</p>
+            <div class="pchips"><span class="chip">Design sur mesure</span><span class="chip">Responsive</span><span class="chip">Mise en ligne</span></div>
+            <a class="plink" href="https://maison-horlogers-paris15.netlify.app/" target="_blank" rel="noopener">Voir le site en ligne <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Project 2: Horloger logos -->
+        <article class="proj reveal">
+          <div class="pv">
+            <div class="mk-logos">
+              <div class="cell"><div class="mono-emb">MH</div><div class="tiny">Monogramme</div></div>
+              <div class="cell"><div class="word">LA MAISON<br>DES HORLOGERS</div><div class="tiny">Logotype</div></div>
+              <div class="cell"><div class="word serif" style="font-style:normal">Horlogers</div><div class="tiny">Variante</div></div>
+              <div class="cell"><div class="mono-emb" style="border-radius:10px">MH</div><div class="tiny">Emblème</div></div>
+            </div>
+          </div>
+          <div class="pinfo">
+            <div class="ptag">Identité visuelle · Logos</div>
+            <h3>La Maison des Horlogers — Identité</h3>
+            <p class="pdesc">Création de l'identité visuelle : monogramme, logotype et déclinaisons, pensés pour exprimer la précision et le prestige de l'horlogerie.</p>
+            <div class="pchips"><span class="chip">Logo &amp; monogramme</span><span class="chip">Déclinaisons</span><span class="chip">Charte</span></div>
+            <a class="plink" href="https://maison-horlogers-logos.netlify.app/" target="_blank" rel="noopener">Voir les logos <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Project 3: Sushi menu -->
+        <article class="proj reveal">
+          <div class="pv">
+            <div class="mk-sushi">
+              <div class="badge">● HALAL</div>
+              <div class="ttl"><span class="w">SUSHI</span> <span class="p">&amp; THAÏ</span></div>
+              <div class="mn">M E N U</div>
+              <div class="jp">タイ料理 · 寿司</div>
+            </div>
+          </div>
+          <div class="pinfo">
+            <div class="ptag">Carte &amp; visuel · Print</div>
+            <h3>Sushi &amp; Thaï — Carte du restaurant</h3>
+            <p class="pdesc">Conception de la carte complète d'un restaurant (sushi &amp; thaï) : cinq planches néon premium — signatures, plateaux, bowls, à la carte et menus — cohérentes et appétissantes.</p>
+            <div class="pchips"><span class="chip">Menu / carte</span><span class="chip">Direction artistique</span><span class="chip">Print HD</span></div>
+            <span class="plink" style="color:var(--mut)">Projet print · 5 planches</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sec" id="services" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="mono">Services ●</div>
+          <h2>Ce que je <span class="g serif">crée.</span></h2>
+        </div>
+        <p>Tout pour rendre votre commerce visible et désirable — en ligne comme en vitrine.</p>
+      </div>
+      <div class="svcs">
+        <div class="svc reveal">
+          <div class="n">01 · WEB</div>
+          <h3>Sites vitrines</h3>
+          <p>Un site élégant et rapide, impeccable sur mobile, prêt à être trouvé sur Google.</p>
+          <ul><li>Design sur mesure</li><li>SEO de base + mise en ligne</li><li>Contact, horaires, réseaux</li></ul>
+        </div>
+        <div class="svc reveal">
+          <div class="n">02 · IDENTITÉ</div>
+          <h3>Logos &amp; visuels</h3>
+          <p>Identité visuelle, cartes, flyers, menus et visuels réseaux — cohérents et mémorables.</p>
+          <ul><li>Logo &amp; déclinaisons</li><li>Print &amp; réseaux sociaux</li><li>Fichiers haute définition</li></ul>
+        </div>
+        <div class="svc reveal">
+          <div class="n">03 · VIDÉO</div>
+          <h3>Vidéos &amp; reels</h3>
+          <p>Des formats courts et léchés pour Instagram, TikTok et votre fiche Google.</p>
+          <ul><li>Format vertical</li><li>Montage, musique, sous-titres</li><li>Prêt à publier</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="sec about" id="apropos">
+    <div class="wrap">
+      <div class="row">
+        <div class="reveal">
+          <div class="mono">À propos ●</div>
+          <h2>Le soin d'une agence,<br>la souplesse d'un <span class="g serif">indépendant.</span></h2>
+          <p>Je suis Wassim, fondateur de WXM. J'accompagne les commerces et les indépendants sur toute leur image — du logo au site, du menu au reel — avec une exigence de studio et un interlocuteur unique, réactif, du début à la fin.</p>
+          <div class="pts">
+            <div class="pt"><div class="t">Maquette offerte</div><div class="d">Vous voyez le rendu avant de payer.</div></div>
+            <div class="pt"><div class="t">Livraison rapide</div><div class="d">Souvent en une semaine.</div></div>
+            <div class="pt"><div class="t">Sur mesure</div><div class="d">Jamais de template recyclé.</div></div>
+            <div class="pt"><div class="t">Basé à Paris</div><div class="d">Disponible partout en France.</div></div>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="big">Web · Identité · Print · Vidéo</div>
+          <div class="lab">Un seul studio, toute votre image</div>
+          <div class="div"></div>
+          <div class="big" style="color:var(--gold-soft)">Maquette offerte</div>
+          <div class="lab">Sans engagement · devis gratuit</div>
+          <div class="div"></div>
+          <div class="big">~ 1 semaine</div>
+          <div class="lab">Délai moyen de livraison</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="mono">Méthode ●</div>
+          <h2>Simple, et sans <span class="g serif">engagement.</span></h2>
+        </div>
+        <p>Vous voyez le rendu avant de payer. Toujours.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="num">01</div><h3>Vous me dites votre besoin</h3><p>Un mail, deux-trois infos sur votre commerce, et c'est parti.</p></div>
+        <div class="step reveal"><div class="num">02</div><h3>Je vous envoie une maquette</h3><p>Un aperçu concret et gratuit, sans engagement.</p></div>
+        <div class="step reveal"><div class="num">03</div><h3>Validé, je livre</h3><p>Une fois la maquette validée, votre projet est prêt — souvent en une semaine.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec contact" id="contact">
+    <div class="wrap">
+      <div class="box reveal">
+        <div class="glow"></div>
+        <div class="mono" style="position:relative">Contact ●</div>
+        <h2>Un projet en tête ?<br><span class="g serif">Parlons-en.</span></h2>
+        <p>Dites-moi ce que vous voulez mettre en avant — je vous réponds avec une première idée, gratuitement.</p>
+        <div class="cta">
+          <a class="btn" href="mailto:wassemendaci@gmail.com?subject=Demande%20de%20maquette%20WXM">Écrivez-moi</a>
+          <a class="btn ghost" href="#realisations">Revoir les réalisations</a>
+        </div>
+        <div class="mailline">wassemendaci@gmail.com · Paris, France</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span class="mono">WXM</span> — Studio créatif · Paris</div>
+    <div>© <span id="yr">2026</span> WXM · Wassim Mendaci</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var y=document.getElementById('yr'); if(y){y.textContent=new Date().getFullYear();}
+  // show compact contact button on small screens
+  function sync(){var m=document.getElementById('mbtn'); if(!m)return; m.style.display=(window.innerWidth<=820)?'inline-flex':'none';}
+  sync(); window.addEventListener('resize',sync);
+})();
+</script>
+</body>
+</html>
